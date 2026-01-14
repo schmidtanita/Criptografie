@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Functii_Hash_Criptografice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="7. Functii hash criptografice" Height="520" Width="860" MinHeight="460" MinWidth="720">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   FontSize="22" FontWeight="SemiBold"
+                   Text="Cryptographic Hash Functions"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,6,0,12"
+                   TextWrapping="Wrap"
+                   Text="Select a file, choose a hash algorithm, then compute the hash asynchronously. Results are shown in hexadecimal."/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"
+                   Text="File:"/>
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,4,0,10" LastChildFill="False">
+            <TextBox x:Name="FilePathTextBox" MinHeight="30" Margin="0,0,8,0" IsReadOnly="True"
+                     VerticalContentAlignment="Center" DockPanel.Dock="Left" Width="600"/>
+            <Button x:Name="BrowseButton" Content="Browse..." Width="110" Click="BrowseButton_Click"/>
+        </DockPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Algorithm:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <ComboBox x:Name="AlgorithmComboBox" Width="220" SelectedIndex="0">
+                    <ComboBoxItem Content="MD5"/>
+                    <ComboBoxItem Content="RIPEMD160"/>
+                    <ComboBoxItem Content="SHA1"/>
+                    <ComboBoxItem Content="SHA256"/>
+                    <ComboBoxItem Content="SHA3-256"/>
+                    <ComboBoxItem Content="SHA3-384"/>
+                    <ComboBoxItem Content="SHA3-512"/>
+                    <ComboBoxItem Content="SHA384"/>
+                    <ComboBoxItem Content="SHA512"/>
+                </ComboBox>
+                <Button x:Name="ComputeButton" Content="Compute Hash" Width="140" Margin="16,0,0,0"
+                        Click="ComputeButton_Click"/>
+            </StackPanel>
+
+            <TextBlock Text="Hex Output:" Margin="0,16,0,6"/>
+            <TextBox x:Name="HashOutputTextBox" Height="160" TextWrapping="Wrap"
+                     IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" LastChildFill="False">
+            <ProgressBar x:Name="HashProgressBar" Width="180" Height="16" IsIndeterminate="True"
+                         Visibility="Collapsed" Margin="0,0,12,0"/>
+            <TextBlock x:Name="StatusTextBlock" VerticalAlignment="Center" Text="Ready."/>
+        </DockPanel>
     </Grid>
 </Window>
