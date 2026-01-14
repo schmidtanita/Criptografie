@@ -1,0 +1,16 @@
+## .NET
+bin/
+obj/
+.vs/
+
+## Visual Studio
+*.user
+*.suo
+
+## NuGet
+project.assets.json
+project.nuget.cache
+
+## OS
+Thumbs.db
+.DS_Store
