@@ -1,0 +1,60 @@
+﻿<Window x:Class="Criptare_Simetrica.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Criptare_Simetrica"
+        mc:Ignorable="d"
+        Title="Criptare simetrica" Height="520" Width="860"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Input file"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="8,4" Name="InputFileTextBox"/>
+        <Button Grid.Row="0" Grid.Column="2" Margin="8,4" Content="Browse" Click="BrowseInput_Click"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="Output file"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="8,4" Name="OutputFileTextBox"/>
+        <Button Grid.Row="1" Grid.Column="2" Margin="8,4" Content="Browse" Click="BrowseOutput_Click"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="Algoritm"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="8,4" Name="AlgorithmCombo"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="CipherMode"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="8,4" Name="ModeCombo"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Text="Padding"/>
+        <ComboBox Grid.Row="4" Grid.Column="1" Margin="8,4" Name="PaddingCombo"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Text="Key (text)"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="8,4" Name="KeyTextBox"/>
+        <Button Grid.Row="5" Grid.Column="2" Margin="8,4" Content="Generate Key" Click="GenerateKey_Click"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Text="IV (text)"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="8,4" Name="IVTextBox"/>
+        <Button Grid.Row="6" Grid.Column="2" Margin="8,4" Content="Generate IV" Click="GenerateIV_Click"/>
+
+        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="8,8,0,8">
+            <Button Width="120" Margin="0,0,8,0" Content="Encrypt" Click="Encrypt_Click"/>
+            <Button Width="120" Content="Decrypt" Click="Decrypt_Click"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,8,0,0" Name="StatusTextBlock" TextWrapping="Wrap"/>
+    </Grid>
+</Window>
